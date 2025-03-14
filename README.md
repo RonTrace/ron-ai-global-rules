@@ -1,17 +1,16 @@
-# AI Coder Global Rules
+# AI Coder Rules 🤖
 
-A modular repository for managing behavior guidelines, shortcodes, and other rules for AI coding agents. This repository provides a structured, maintainable approach to defining how your AI assistants should behave when helping you with coding tasks.
+Make your AI coding assistants work exactly how you want them to! This repo keeps all your AI coding rules in one place while making them super easy to update.
 
-## Overview
+## What's This All About?
 
-This repository is designed to store and manage rules for AI coding agents in a modular, maintainable way. Instead of managing a single large rules file, you can update individual components (behavior guidelines, commands, etc.) independently, and GitHub Actions will automatically generate a consolidated global rules file.
+Instead of one giant rules file, we've split things up into bite-sized pieces. Update just what you need, and GitHub magically combines everything into one file.
 
-### Key Features
+### Cool Stuff This Repo Does
 
-- **Modular Structure**: Separate files for different aspects of AI behavior
-- **Automatic Consolidation**: GitHub Actions workflow automatically creates a single global rules file
-- **Version Control**: Track changes to your AI's behavior over time
-- **Simple Maintenance**: Update specific rules without editing the entire ruleset
+- 📄 Keeps everything organized in separate files
+- 🔄 Automatically builds your master rules file
+- 📝 Makes updating rules as easy as editing a text file
 
 ## Repository Structure
 
