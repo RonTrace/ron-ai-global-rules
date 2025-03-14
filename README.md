@@ -74,6 +74,26 @@ When the user types **command_name**, follow these instructions:
 - Step 2: Do that
 ```
 
+## Plugin Integrations
+
+This repository includes configurations for specific plugins that enhance AI coding capabilities:
+
+### SQLTools
+
+When working in VSCode, Windsurf, or Cursor, SQLTools is the preferred tool for writing SQL queries:
+
+- **Purpose**: Database management and query execution
+- **Usage**: AI agents should use SQLTools for all database interactions
+- **Commands**: Use `sqltools connect` before running queries
+
+### Lifeline
+
+A custom plugin with its own set of shortcodes for code organization and documentation:
+
+- **Purpose**: Code organization, documentation, and context management
+- **Implementation**: All commands are defined in `src/shortcodes.md`
+- **Usage**: AI agents should follow the specific instructions in the shortcodes file
+
 ## Integrating with AI Tools
 
 To use these rules with your AI coding tools:
