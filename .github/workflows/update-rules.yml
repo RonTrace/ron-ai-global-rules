@@ -2,24 +2,71 @@ name: Update Global Rules
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
+    paths:
+      - 'src/**'
+      - '.github/workflows/update-rules.yml'
 
 jobs:
-  build:
+  update:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
-      - uses: actions/checkout@v2
-      - name: Set up Python
-        uses: actions/setup-python@v2
+      - uses: actions/checkout@v3
         with:
-          python-version: '3.x'
-      - name: Run concatenation script
-        run: python concatenate.py
-      - name: Commit changes
+          fetch-depth: 0
+      
+      - name: Check for required files
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add global_rules.md
-          git commit -m "Update global_rules.md" || echo "No changes to commit"
-          git push
+          for file in behavior.md shortcodes.md plugins.md; do
+            if [ ! -f "src/$file" ]; then
+              echo "❌ Missing required file: src/$file"
+              exit 1
+            fi
+          done
+          echo "✅ All required files present"
+      
+      - name: Combine rules
+        run: |
+          # Start fresh
+          echo "# 🤖 AI Global Rules" > global_rules.md
+          
+          # Add behavior rules
+          echo "\n## 📋 Behavior\n" >> global_rules.md
+          cat src/behavior.md >> global_rules.md || exit 1
+          
+          # Add shortcodes
+          echo "\n## 🔧 Commands\n" >> global_rules.md
+          cat src/shortcodes.md >> global_rules.md || exit 1
+          
+          # Add plugins
+          echo "\n## 🔌 Plugins\n" >> global_rules.md
+          cat src/plugins.md >> global_rules.md || exit 1
+          
+          # Add references if they exist
+          if [ -d "src/references" ]; then
+            echo "\n## 📚 References\n" >> global_rules.md
+            for file in src/references/*.md; do
+              if [ -f "$file" ]; then
+                name=$(basename "$file" .md)
+                echo "\n### ${name^}\n" >> global_rules.md
+                cat "$file" >> global_rules.md
+              fi
+            done
+          fi
+          
+          echo "✅ Rules combined successfully"
+      
+      - name: Commit and push if changed
+        run: |
+          if git diff --quiet global_rules.md; then
+            echo "No changes to global_rules.md"
+          else
+            git config --local user.email "github-actions[bot]@users.noreply.github.com"
+            git config --local user.name "github-actions[bot]"
+            git add global_rules.md
+            git commit -m "🤖 Update global rules [skip ci]"
+            git push
+            echo "✅ Changes pushed successfully"
+          fi
