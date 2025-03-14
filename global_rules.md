@@ -1,6 +1,5 @@
-# Global Rules for AI Coding Agent
-
-## Behavior Guidelines
+# 🤖 AI Global Rules
+\n## 📋 Behavior\n
 # Behavior Guidelines
 
 ## Always Do This
@@ -18,9 +17,7 @@
 
 - Provide direct, actionable code with minimal explanation.
 - Only elaborate when explicitly asked.
-
-
-## Shortcodes and Commands
+\n## 🔧 Commands\n
 # Shortcodes and Commands
 
 ## build
@@ -67,9 +64,50 @@ When the user types **lifeline**, follow these instructions:
 When the user types **lifeline read**, follow these instructions:
 
 - Find the most recent file in the `_lifeline` folder that starts with `_lifeline-response` and follow the directions outlined in that file step by step.
+\n## 🔌 Plugins\n
+# Plugins
 
+## Lifeline
 
-## References: UI Standards
+- **Description**: Custom plugin for code organization, documentation, and context management
+- **Repository**: https://github.com/RonTrace/lifeline
+- **IDE Support**: VSCode, Windsurf, Cursor
+- **Usage**: This plugin's specific commands are defined in the `shortcodes.md` file
+- **Notes**: 
+  - All lifeline commands follow a standardized format
+  - Refer to the shortcodes file for complete usage instructions
+  - This plugin enhances AI coding assistance by providing structured context
+
+## SQLTools
+
+- **Description**: Database management and SQL query execution
+- **Repository**: https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools
+- **IDE Support**: VSCode, Windsurf, Cursor
+- **REQUIRED USAGE**: ALWAYS use SQLTools for database operations; NEVER build connections from scratch
+- **Primary Commands**:
+  - `sqltools connect` - Connect to the database
+  - `sqltools.executeQuery` - Run the current SQL query
+  - `sqltools.executeQueryFromFile` - Execute saved queries
+- **Supported Databases**:
+  - PostgreSQL
+  - MySQL
+  - SQLite
+  - Microsoft SQL Server
+  - Oracle
+- **Usage Guidelines**:
+  - Always verify database connection before running queries
+  - Use proper query formatting for readability
+  - Apply query limiting (LIMIT/TOP) for large datasets
+  - Structure complex queries with CTEs for maintainability
+  - NEVER attempt to create custom database connections or use raw database libraries
+\n## 📚 References\n
+\n### Code-style\n
+# Code Style Guide
+
+- Use 2 spaces for indentation.
+- Prefer functional components over class components in React.
+- Always include PropTypes for component props.
+\n### Ui-standards\n
 # Comprehensive UI Design and Development Guidelines
 
 ## Table of Contents
@@ -757,52 +795,4 @@ function TooltipButton({ text, tooltip }) {
 ```
 
 These guidelines and examples provide a comprehensive framework for making decisions about UI design and element placement. Remember to always consider the specific context of your application and conduct user testing to refine your designs.
-
-
-
-## References: Code Style
-# Code Style Guide
-
-- Use 2 spaces for indentation.
-- Prefer functional components over class components in React.
-- Always include PropTypes for component props.
-
-
-## Plugins
-# Plugins
-
-## Lifeline
-
-- **Description**: Custom plugin for code organization, documentation, and context management
-- **Repository**: https://github.com/RonTrace/lifeline
-- **IDE Support**: VSCode, Windsurf, Cursor
-- **Usage**: This plugin's specific commands are defined in the `shortcodes.md` file
-- **Notes**: 
-  - All lifeline commands follow a standardized format
-  - Refer to the shortcodes file for complete usage instructions
-  - This plugin enhances AI coding assistance by providing structured context
-
-## SQLTools
-
-- **Description**: Database management and SQL query execution
-- **Repository**: https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools
-- **IDE Support**: VSCode, Windsurf, Cursor
-- **REQUIRED USAGE**: ALWAYS use SQLTools for database operations; NEVER build connections from scratch
-- **Primary Commands**:
-  - `sqltools connect` - Connect to the database
-  - `sqltools.executeQuery` - Run the current SQL query
-  - `sqltools.executeQueryFromFile` - Execute saved queries
-- **Supported Databases**:
-  - PostgreSQL
-  - MySQL
-  - SQLite
-  - Microsoft SQL Server
-  - Oracle
-- **Usage Guidelines**:
-  - Always verify database connection before running queries
-  - Use proper query formatting for readability
-  - Apply query limiting (LIMIT/TOP) for large datasets
-  - Structure complex queries with CTEs for maintainability
-  - NEVER attempt to create custom database connections or use raw database libraries
-
 
