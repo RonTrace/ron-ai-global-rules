@@ -1,93 +1,121 @@
-# AI Assistant Roles Project Setup
+# AI Coder Global Rules
 
-This project provides a simple way to manage different roles for your AI assistant. By defining roles in a single text file (`roles.txt`), you can easily switch between different sets of instructions for the AI, such as front-end development, data analysis, or creative tasks like lyric writing. The AI can load these instructions from a public repository, ensuring it always uses the latest version.
+A modular repository for managing behavior guidelines, shortcodes, and other rules for AI coding agents. This repository provides a structured, maintainable approach to defining how your AI assistants should behave when helping you with coding tasks.
 
----
+## Overview
+
+This repository is designed to store and manage rules for AI coding agents in a modular, maintainable way. Instead of managing a single large rules file, you can update individual components (behavior guidelines, commands, etc.) independently, and GitHub Actions will automatically generate a consolidated global rules file.
+
+### Key Features
+
+- **Modular Structure**: Separate files for different aspects of AI behavior
+- **Automatic Consolidation**: GitHub Actions workflow automatically creates a single global rules file
+- **Version Control**: Track changes to your AI's behavior over time
+- **Simple Maintenance**: Update specific rules without editing the entire ruleset
 
 ## Repository Structure
 
-The repository is minimal and contains only one essential file:
+- `src/` - Source directory containing all modular files
+  - `behavior.md` - General behavior guidelines for the AI agent
+  - `shortcodes.md` - User commands and their specific instructions
+  - `plugins.md` - Information about available plugins
+  - `references/` - Reference materials and standards
+    - `ui-standards.md` - UI design standards
+    - `code-style.md` - Code style guidelines
+- `concatenate.py` - Script to combine all modular files into a single global rules file
+- `global_rules.md` - Auto-generated file containing all combined rules
+- `.github/workflows/update-rules.yml` - GitHub Action to automatically update the global rules file
 
-* `roles.txt`: Defines the roles and their specific instructions in plain text.
+## Building and Installing Locally
 
-Optionally, you can include:
+To generate the consolidated global rules file locally:
 
-* `README.md`: A quick guide to the repository (this file).
-* `CHANGELOG.md`: Tracks updates to the roles or instructions (optional).
-
----
-
-## Setting Up the Project
-
-To set up the project using an AI assistant:
-
-1. **Create a new repository** on GitHub (or your preferred platform).
-2. **Create a file named** `roles.txt` in the repository.
-3. **Add role definitions** to `roles.txt` using the format shown in the sample below.
-4. **Commit and push** the file to make it publicly accessible.
-
----
-
-## Sample `roles.txt`
-
-The `roles.txt` file uses a simple format:
-
-* Each role starts with a header in square brackets, e.g., `[role_name]`.
-* Instructions for each role are listed below the header.
-* A `[global]` section provides default instructions when no specific role is specified.
-
-Here's a sample `roles.txt`:
-
-```plaintext
-[global]
-- Write clear, readable responses.
-- Be concise and helpful.
-
-[frontend_developer]
-- Focus on React and UI best practices.
-- Suggest modern JavaScript techniques.
-
-[python_data_analyst]
-- Use pandas for data tasks.
-- Explain analysis steps clearly.
-
-[lyric_writer]
-- Use vivid imagery and metaphors.
-- Keep a consistent tone or rhyme if asked.
+```bash
+python concatenate.py
 ```
 
----
+This will create a `global_rules.md` file in the root directory that contains all the combined rules.
 
-## Using the Roles with the AI Assistant
+## Automation
 
-To use the roles with your AI assistant:
+This repository uses GitHub Actions to automatically generate the `global_rules.md` file whenever changes are pushed to the main branch. The workflow is defined in `.github/workflows/update-rules.yml`.
 
-1. **Instruct the AI to load the `roles.txt` file** from your public repository.
-2. **Specify the role** you want the AI to assume, or let it default to the `[global]` instructions.
+## Usage
 
-### Sample Prompts
+### For AI Agents
 
-* **Specify a role**:
-  *"Load the latest `roles.txt` from [repo_url]/roles.txt and use the [frontend_developer] role."*
-* **Use the global instructions**:
-  *"Load the latest `roles.txt` from [repo_url]/roles.txt and use the [global] instructions."*
-* **Switch roles mid-conversation**:
-  *"Now, switch to the [python_data_analyst] role using the instructions from [repo_url]/roles.txt."*
+AI coding agents can access the global rules by fetching the raw content of `global_rules.md` from this repository. For example:
 
-If no role is specified, the AI will default to the `[global]` instructions.
+```
+https://raw.githubusercontent.com/yourusername/ron-ai-global-rules/main/global_rules.md
+```
 
----
+### Modifying Rules
 
-## Adding or Updating Roles
+To update or add new rules:
 
-To add a new role or update an existing one:
+1. Modify the appropriate file in the `src/` directory
+2. Commit and push your changes
+3. GitHub Actions will automatically update the `global_rules.md` file
 
-1. **Edit** `roles.txt` in your repository.
-2. **Commit and push** the changes.
+### Creating Custom Commands
 
-**Tip**: Keep instructions concise and clear, as the AI will follow them directly.
+To add a new custom command:
 
----
+1. Open `src/shortcodes.md`
+2. Add your command following the established pattern:
 
-This setup ensures your AI assistant can adapt to different roles while keeping the configuration simple and maintainable. Use the sample prompts to guide the AI in setting up and updating the project as needed!
-Rules for my AI agents
+```markdown
+## command_name
+
+When the user types **command_name**, follow these instructions:
+
+- Step 1: Do this
+- Step 2: Do that
+```
+
+## Integrating with AI Tools
+
+To use these rules with your AI coding tools:
+
+### OpenAI GPT
+
+Include this in your system message or as part of your initial prompt:
+
+```
+Fetch and follow the coding rules from: https://raw.githubusercontent.com/yourusername/ron-ai-global-rules/main/global_rules.md
+```
+
+### Claude
+
+Include this in your system prompt:
+
+```
+Please fetch and adhere to the coding guidelines found at: https://raw.githubusercontent.com/yourusername/ron-ai-global-rules/main/global_rules.md
+```
+
+## Local Development
+
+### Requirements
+
+- Python 3.6 or higher
+- Git
+
+### Cloning the Repository
+
+```bash
+git clone https://github.com/yourusername/ron-ai-global-rules.git
+cd ron-ai-global-rules
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-rule`)
+3. Commit your changes (`git commit -am 'Add some amazing rule'`)
+4. Push to the branch (`git push origin feature/amazing-rule`)
+5. Create a new Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.

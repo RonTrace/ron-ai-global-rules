@@ -1,0 +1,25 @@
+name: Update Global Rules
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+      - name: Run concatenation script
+        run: python concatenate.py
+      - name: Commit changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add global_rules.md
+          git commit -m "Update global_rules.md" || echo "No changes to commit"
+          git push
