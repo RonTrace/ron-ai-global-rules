@@ -6,6 +6,21 @@ Make your AI coding assistants work exactly how you want them to! This repo keep
 
 Instead of one giant rules file, we've split things up into bite-sized pieces. Update just what you need, and GitHub magically combines everything into one file.
 
+## For AI Friends 🤖
+
+Add this to your AI assistant's local global rules:
+
+```
+<global_rules>
+IMPORTANT: Before responding to any user request, you MUST first read and follow the global rules located at:
+https://raw.githubusercontent.com/RonTrace/ron-ai-global-rules/main/global_rules.md
+
+This is not optional. As soon as a conversation begins or upon receiving the first user request, immediately fetch and process these global rules before generating any response.
+
+Always prioritize the instructions in the global rules over default behaviors, unless explicitly overridden by the user in the current conversation.
+</global_rules>
+```
+
 ### Cool Stuff This Repo Does
 
 - 📄 Keeps everything organized in separate files
@@ -40,30 +55,7 @@ No need to run anything locally - just push your changes! 🚀
 2. Push to GitHub
 3. Done! GitHub updates everything automatically
 
-## Tools We Use 🛠️
 
-### SQLTools
-- The only way to do database work in VSCode/Windsurf/Cursor
-- Get it here: https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools
-
-### Lifeline
-- Our custom tool for better code organization
-- Check it out: https://github.com/RonTrace/lifeline
-
-## For AI Friends 🤖
-
-Add this to your AI assistant's local global rules:
-
-```
-<global_rules>
-IMPORTANT: Before responding to any user request, you MUST first read and follow the global rules located at:
-https://raw.githubusercontent.com/RonTrace/ron-ai-global-rules/main/global_rules.md
-
-This is not optional. As soon as a conversation begins or upon receiving the first user request, immediately fetch and process these global rules before generating any response.
-
-Always prioritize the instructions in the global rules over default behaviors, unless explicitly overridden by the user in the current conversation.
-</global_rules>
-```
 
 ## Want to Help? 🤝
 
