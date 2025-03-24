@@ -1,13 +1,6 @@
 # 🤖 AI Global Rules
-
-## Table of Contents
-1. [📋 Behavior Guidelines](#behavior-guidelines)
-2. [🔌 Plugins](#plugins)
-3. [📝 Code Style](#code-style)
-4. [🔧 Commands](#shortcodes-and-commands)
-5. [🎨 UI Standards](#ui-standards)
-
-## Behavior Guidelines
+\n## 📋 Behavior\n
+# Behavior Guidelines
 
 ## Always Do This
 
@@ -20,53 +13,18 @@
 - Decompose complex requests into manageable steps.
 - Present a clear plan before implementing each part.
 
+## Stay Focused on the Request
+
+- Don't go too far beyond the immediate task.
+- If you find yourself going beyond what was asked and starting to fix other things, stop.
+- Always present good, better, best options before working on a task.
+
 ## Output Focused Communication
 
 - Provide direct, actionable code with minimal explanation.
 - Only elaborate when explicitly asked.
-## 🔌 Plugins
-
-### Lifeline
-
-- **Description**: Custom plugin for code organization, documentation, and context management
-- **Repository**: https://github.com/RonTrace/lifeline
-- **IDE Support**: VSCode, Windsurf, Cursor
-- **Usage**: This plugin's specific commands are defined in the `shortcodes.md` file
-- **Notes**: 
-  - All lifeline commands follow a standardized format
-  - Refer to the shortcodes file for complete usage instructions
-  - This plugin enhances AI coding assistance by providing structured context
-
-### SQLTools
-
-- **Description**: Database management and SQL query execution
-- **Repository**: https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools
-- **IDE Support**: VSCode, Windsurf, Cursor
-- **REQUIRED USAGE**: ALWAYS use SQLTools for database operations; NEVER build connections from scratch
-- **Primary Commands**:
-  - `sqltools connect` - Connect to the database
-  - `sqltools.executeQuery` - Run the current SQL query
-  - `sqltools.executeQueryFromFile` - Execute saved queries
-- **Supported Databases**:
-  - PostgreSQL
-  - MySQL
-  - SQLite
-  - Microsoft SQL Server
-  - Oracle
-- **Usage Guidelines**:
-  - Always verify database connection before running queries
-  - Use proper query formatting for readability
-  - Apply query limiting (LIMIT/TOP) for large datasets
-  - Structure complex queries with CTEs for maintainability
-  - NEVER attempt to create custom database connections or use raw database libraries
-
-## 📝 Code Style
-
-- Use 2 spaces for indentation.
-- Prefer functional components over class components in React.
-- Always include PropTypes for component props.
-
-## 🔧 Commands
+\n## 🔧 Commands\n
+# Shortcodes and Commands
 
 ## build
 
@@ -112,12 +70,240 @@ When the user types **lifeline**, follow these instructions:
 When the user types **lifeline read**, follow these instructions:
 
 - Find the most recent file in the `_lifeline` folder that starts with `_lifeline-response` and follow the directions outlined in that file step by step.
+
+## plan
+
+When the user types **plan**, follow these instructions for collaborative project/feature planning:
+
+1. **Establish a shared understanding:**
+
+   - Begin by asking clarifying questions about the project goals, scope, constraints, and success criteria
+   - Summarize the user's objectives to confirm your understanding before proceeding
+   - Identify key stakeholders and their requirements
+   - Establish the expected timeline and resource constraints
+
+2. **Collaborative ideation and requirements gathering:**
+
+   - Guide the user through a structured brainstorming process
+   - Document functional and non-functional requirements
+   - Help prioritize requirements using techniques like MoSCoW (Must have, Should have, Could have, Won't have)
+   - Consider trade-offs between features, time, and quality
+   - Ask about any existing systems, code, or documentation that may be relevant
+
+3. **Architecture and design planning:**
+
+   - Propose appropriate technology stack options with clear reasoning
+   - Outline potential architecture approaches with pros and cons of each
+   - Create visual representations where helpful (system diagrams, user flows, data models)
+   - Discuss potential technical challenges and mitigation strategies
+   - Consider security, performance, and scalability implications
+
+4. **Project structure and organization:**
+
+   - Break down the project into logical components or modules
+   - Propose a folder/file structure that follows best practices for the chosen stack
+   - Identify key interfaces between components
+   - Suggest appropriate design patterns and coding standards
+   - Define a test strategy (unit tests, integration tests, etc.)
+
+5. **Implementation roadmap:**
+
+   - Create a phased implementation plan with clear milestones
+   - Define dependencies between different components
+   - Suggest a minimum viable product (MVP) approach if appropriate
+   - Identify tasks that can be parallelized vs. those that must be sequential
+   - Create reasonable time estimates for major components
+
+6. **Risk assessment and mitigation:**
+
+   - Identify potential technical, schedule, and resource risks
+   - Rate risks by likelihood and impact
+   - Propose specific mitigation strategies for high-priority risks
+   - Consider fallback approaches for the most critical parts of the project
+
+7. **Collaboration plan:**
+
+   - Establish a shared vocabulary for the project
+   - Define communication channels and check-in points
+   - Clarify responsibilities between user and AI assistant
+   - Set expectations about iteration and feedback cycles
+   - Create a version control strategy if applicable
+
+8. **Documentation strategy:**
+
+   - Outline what documentation will be created and maintained
+   - Establish documentation standards and formats
+   - Consider developer documentation, user documentation, and system documentation needs
+   - Create templates for recurring documentation needs
+
+9. **Final deliverables:**
+
+   - Provide a comprehensive planning document summarizing all the above sections
+   - Include a visual project roadmap or timeline
+   - Create a prioritized task list for immediate next steps
+   - Establish clear success criteria and evaluation methods
+
+10. **Important guidelines:**
+
+    - Maintain a balance between thoroughness and pragmatism
+    - Be adaptable to changing requirements throughout the planning process
+    - Use visual aids and structured formatting to enhance clarity
+    - Regularly summarize decisions and action items
+    - Proactively identify areas where more information is needed
+    - Apply domain-specific best practices relevant to the project type
+    - Use planning artifacts (user stories, use cases, etc.) appropriate to the project methodology
+
+## journal
+
+When the user types **journal**, follow these instructions to document the current project:
+
+1. **Create a journal entry with the following structure:**
+
+   - Begin with a descriptive title that captures the essence of the project
+   - Include the current date
+   - Structure the document with clear sections using headers (h1, h2, etc.)
+
+2. **Introduction/Overview section:**
+
+   - Provide a compelling introduction that explains the project context
+   - Clearly state the problem being solved
+   - Highlight why this project is important
+   - End with a concise statement of the core objective in bold
+
+3. **Problem Statement/Challenge section:**
+
+   - Detail the specific challenges or issues being addressed
+   - Use lists to break down complex problems into discrete components
+   - When referring to technical systems or data, use structured formatting
+   - Include relevant background context that helps understand the problem space
+
+4. **Solution Approach section:**
+
+   - Describe the chosen solution with a focus on architecture and design decisions
+   - Explain key implementation details and technical choices
+   - Include code snippets or command examples when relevant
+   - Document the workflow or process that the solution enables
+
+5. **Implementation Details section:**
+
+   - Break down the technical implementation into logical components
+   - Use bullet points or numbered lists for clarity
+   - Include relevant data structures, algorithms, or patterns used
+   - Highlight any particularly clever or important implementation details
+
+6. **Examples/Output section:**
+
+   - Show concrete examples of the solution in action
+   - For code output, use formatted code blocks with proper syntax highlighting
+   - For visual elements, describe or visualize the UI/UX considerations
+   - Include sample inputs and outputs when applicable
+
+7. **Future Plans section:**
+
+   - Outline potential improvements or next steps
+   - Prioritize future enhancements based on impact and feasibility
+   - Consider scalability, performance, or usability improvements
+   - Include any known limitations that could be addressed
+
+8. **Visual elements and formatting guidelines:**
+
+   - Use consistent, clean formatting throughout the document
+   - Format code snippets, commands, and output in monospace code blocks
+   - Use emphasis (bold, italic) strategically to highlight key points
+   - Consider visual separators between major sections for readability
+   - Structure complex information in tables or formatted lists when appropriate
+   - Include technical diagrams or mockups if they add clarity
+
+9. **Writing style guidelines:**
+
+   - Maintain a professional but conversational tone
+   - Be precise and specific, especially with technical details
+   - Focus on clarity over technical jargon, but use proper terminology
+   - Tell a coherent story from problem to solution to future work
+   - Use active voice and direct language
+   - Keep paragraphs focused and relatively short for readability
 \n## 🔌 Plugins\n
 # Plugins
 
 ## Lifeline
 
-## 🎨 UI Standards
+- **Description**: Custom plugin for code organization, documentation, and context management
+- **Repository**: https://github.com/RonTrace/lifeline
+- **IDE Support**: VSCode, Windsurf, Cursor
+- **Usage**: This plugin's specific commands are defined in the `shortcodes.md` file
+- **Notes**: 
+  - All lifeline commands follow a standardized format
+  - Refer to the shortcodes file for complete usage instructions
+  - This plugin enhances AI coding assistance by providing structured context
+\n## 📚 References\n
+\n### Code-style\n
+# Code Style Guide
+
+## General Formatting
+
+- Use 2 spaces for indentation, not tabs
+- Limit line length to 100 characters where possible
+- Use UTF-8 encoding for all source files
+- End files with a single newline character
+- Remove trailing whitespace from all lines
+- Use consistent casing conventions:
+  - `camelCase` for variables, functions, and methods
+  - `PascalCase` for classes, interfaces, types, and React components
+  - `UPPER_SNAKE_CASE` for constants
+  - `kebab-case` for filenames and URLs
+
+## JavaScript/TypeScript
+
+- Use semicolons to terminate statements
+- Prefer `const` over `let`, avoid `var`
+- Use explicit type annotations in TypeScript
+- Use arrow functions for callbacks
+- Destructure objects and arrays when appropriate
+- Use template literals instead of string concatenation
+- Add trailing commas for multi-line arrays and objects
+- Use async/await instead of raw promises when possible
+
+## React Specific
+
+- Prefer functional components over class components
+- Always include PropTypes for component props (or TypeScript types)
+- Use named exports for components
+- Keep components small and focused on a single responsibility
+- Organize component files with a consistent structure:
+  - Imports
+  - Type definitions
+  - Component declaration
+  - Helper functions
+  - Styles
+  - Exports
+- Use hooks for state management and side effects
+- Memoize expensive calculations with useMemo and useCallback
+
+## CSS/Styling
+
+- Follow BEM naming convention for CSS classes
+- Prefer CSS modules or styled-components over global CSS
+- Group related CSS properties together
+- Use variables for colors, spacing, and other repeated values
+- Maintain a consistent order of CSS properties
+
+## Comments and Documentation
+
+- Write self-documenting code when possible
+- Add comments for complex logic or non-obvious decisions
+- Document public APIs and functions with JSDoc
+- Keep comments up-to-date with code changes
+- Use TODO, FIXME, and NOTE comments for future work
+
+## Git Practices
+
+- Write clear and descriptive commit messages
+- Use the imperative mood in commit message titles ("Add feature" not "Added feature")
+- Keep commits focused on a single logical change
+- Reference issue numbers in commit messages when applicable
+- Branch naming convention: `type/description` (e.g., `feature/user-authentication`)
+\n### Ui-standards\n
+# Comprehensive UI Design and Development Guidelines
 
 ## Table of Contents
 1. [Layout](#layout)
