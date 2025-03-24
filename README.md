@@ -8,6 +8,12 @@ Instead of one giant rules file, we've split things up into bite-sized pieces. U
 
 ## For AI Friends 🤖
 
+### Required Setup
+
+These global rules assume you have the [Lifeline](https://github.com/RonTrace/lifeline) VSCode extension installed. While not strictly required, the rules may reference Lifeline functionality. If you don't have it installed, you can ignore those specific instructions.
+
+### Global Rules Configuration
+
 Add this to your AI assistant's local global rules:
 
 ```
