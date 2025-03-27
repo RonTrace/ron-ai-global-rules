@@ -1,5 +1,7 @@
 # Shortcodes and Commands
 
+Shortcodes are 1 or 2 word phrases with predefined instructions. Follow the instructions for each shortcode when the user types it.
+
 ## build
 
 When the user types **build**, follow these instructions:
@@ -88,44 +90,19 @@ When the user types **plan**, follow these instructions for collaborative projec
    - Identify tasks that can be parallelized vs. those that must be sequential
    - Create reasonable time estimates for major components
 
-6. **Risk assessment and mitigation:**
-
-   - Identify potential technical, schedule, and resource risks
-   - Rate risks by likelihood and impact
-   - Propose specific mitigation strategies for high-priority risks
-   - Consider fallback approaches for the most critical parts of the project
-
-7. **Collaboration plan:**
-
-   - Establish a shared vocabulary for the project
-   - Define communication channels and check-in points
-   - Clarify responsibilities between user and AI assistant
-   - Set expectations about iteration and feedback cycles
-   - Create a version control strategy if applicable
-
-8. **Documentation strategy:**
+6. **Documentation strategy:**
 
    - Outline what documentation will be created and maintained
    - Establish documentation standards and formats
    - Consider developer documentation, user documentation, and system documentation needs
    - Create templates for recurring documentation needs
 
-9. **Final deliverables:**
+7. **Final deliverables:**
 
    - Provide a comprehensive planning document summarizing all the above sections
    - Include a visual project roadmap or timeline
    - Create a prioritized task list for immediate next steps
    - Establish clear success criteria and evaluation methods
-
-10. **Important guidelines:**
-
-    - Maintain a balance between thoroughness and pragmatism
-    - Be adaptable to changing requirements throughout the planning process
-    - Use visual aids and structured formatting to enhance clarity
-    - Regularly summarize decisions and action items
-    - Proactively identify areas where more information is needed
-    - Apply domain-specific best practices relevant to the project type
-    - Use planning artifacts (user stories, use cases, etc.) appropriate to the project methodology
 
 ## journal
 

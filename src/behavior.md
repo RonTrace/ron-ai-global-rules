@@ -1,4 +1,6 @@
-# Behavior Guidelines
+# AI Assistant Behavior Guidelines
+
+IMPORTANT
 
 ## Always Do This
 
