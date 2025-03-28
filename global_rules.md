@@ -1,6 +1,8 @@
 # 🤖 AI Global Rules
 \n## 📋 Behavior\n
-# Behavior Guidelines
+# AI Assistant Behavior Guidelines
+
+IMPORTANT
 
 ## Always Do This
 
@@ -25,6 +27,8 @@
 - Only elaborate when explicitly asked.
 \n## 🔧 Commands\n
 # Shortcodes and Commands
+
+Shortcodes are 1 or 2 word phrases with predefined instructions. Follow the instructions for each shortcode when the user types it.
 
 ## build
 
@@ -114,44 +118,19 @@ When the user types **plan**, follow these instructions for collaborative projec
    - Identify tasks that can be parallelized vs. those that must be sequential
    - Create reasonable time estimates for major components
 
-6. **Risk assessment and mitigation:**
-
-   - Identify potential technical, schedule, and resource risks
-   - Rate risks by likelihood and impact
-   - Propose specific mitigation strategies for high-priority risks
-   - Consider fallback approaches for the most critical parts of the project
-
-7. **Collaboration plan:**
-
-   - Establish a shared vocabulary for the project
-   - Define communication channels and check-in points
-   - Clarify responsibilities between user and AI assistant
-   - Set expectations about iteration and feedback cycles
-   - Create a version control strategy if applicable
-
-8. **Documentation strategy:**
+6. **Documentation strategy:**
 
    - Outline what documentation will be created and maintained
    - Establish documentation standards and formats
    - Consider developer documentation, user documentation, and system documentation needs
    - Create templates for recurring documentation needs
 
-9. **Final deliverables:**
+7. **Final deliverables:**
 
    - Provide a comprehensive planning document summarizing all the above sections
    - Include a visual project roadmap or timeline
    - Create a prioritized task list for immediate next steps
    - Establish clear success criteria and evaluation methods
-
-10. **Important guidelines:**
-
-    - Maintain a balance between thoroughness and pragmatism
-    - Be adaptable to changing requirements throughout the planning process
-    - Use visual aids and structured formatting to enhance clarity
-    - Regularly summarize decisions and action items
-    - Proactively identify areas where more information is needed
-    - Apply domain-specific best practices relevant to the project type
-    - Use planning artifacts (user stories, use cases, etc.) appropriate to the project methodology
 
 ## journal
 
@@ -306,14 +285,16 @@ When the user types **journal**, follow these instructions to document the curre
 # Comprehensive UI Design and Development Guidelines
 
 ## Table of Contents
+
 1. [Layout](#layout)
 2. [Sections and Elements](#sections-and-elements)
 3. [Naming Conventions](#naming-conventions)
 4. [Functionality](#functionality)
 5. [Typography](#typography)
-6. [Spacing](#spacing)
-7. [UI Component Selection](#ui-component-selection)
-8. [Specific Patterns and Element Placement](#specific-patterns-and-element-placement)
+6. [Color and Visual Design](#color-and-visual-design)
+7. [Spacing](#spacing)
+8. [UI Component Selection](#ui-component-selection)
+9. [Specific Patterns and Element Placement](#specific-patterns-and-element-placement)
 
 ## Layout
 
@@ -323,12 +304,14 @@ When the user types **journal**, follow these instructions to document the curre
 - Place key content "above the fold" where possible
 
 ### Decision-making process:
+
 1. Identify the primary user goals for the page
 2. Sketch a rough layout considering content hierarchy
 3. Determine breakpoints for responsive design
 4. Iterate and refine based on user testing and feedback
 
 ### Example:
+
 ```html
 <main class="layout">
   <header class="layout__header">...</header>
@@ -347,21 +330,17 @@ When the user types **journal**, follow these instructions to document the curre
 - Use semantic HTML elements (e.g., `<header>`, `<nav>`, `<main>`, `<footer>`)
 - Implement a clear visual hierarchy within sections
 
-
 ### Decision-making process:
 
 1. Analyze the content and identify logical groupings:
 
 1. Group content by topic or function (e.g., product details, user reviews, related items)
-2. Separate primary and secondary information
-3. Identify content that should be immediately visible vs. content that can be hidden or collapsed
+1. Separate primary and secondary information
+1. Identify content that should be immediately visible vs. content that can be hidden or collapsed
 
-
-
-2. Choose appropriate semantic HTML elements
-3. Consider the visual weight and importance of each section
-4. Ensure accessibility with proper heading structure
-
+1. Choose appropriate semantic HTML elements
+1. Consider the visual weight and importance of each section
+1. Ensure accessibility with proper heading structure
 
 ### Example:
 
@@ -371,7 +350,7 @@ When the user types **journal**, follow these instructions to document the curre
   <ul class="product-showcase__list">
     <li class="product-showcase__item">
       <article class="product-card">
-        <img class="product-card__image" src="product1.jpg" alt="Product 1">
+        <img class="product-card__image" src="product1.jpg" alt="Product 1" />
         <h3 class="product-card__title">Product 1</h3>
         <p class="product-card__description">Brief description of Product 1</p>
         <button class="product-card__cta">Add to Cart</button>
@@ -391,14 +370,12 @@ When the user types **journal**, follow these instructions to document the curre
 - Use PascalCase for React component names
 - Use camelCase for JavaScript variables and functions
 
-
 ### Decision-making process:
 
 1. Identify the main component (Block in BEM)
 2. Name child elements with double underscores
 3. Use modifiers with double dashes for variations
 4. Ensure names are descriptive and consistent
-
 
 ### Example:
 
@@ -420,13 +397,11 @@ function ProductCard({ product, isFeatured }) {
 - Implement intuitive and expected behaviors
 - Provide clear feedback for user actions
 
-
 ### Decision-making process:
 
 1. Define the primary function of each component
 2. Consider edge cases and error states
 3. Implement appropriate feedback mechanisms
-
 
 ### Examples of intuitive behaviors:
 
@@ -435,7 +410,6 @@ function ProductCard({ product, isFeatured }) {
 - Form fields highlight when focused
 - Swiping left/right on mobile for image carousels
 
-
 ### Examples of clear feedback:
 
 - Show a loading spinner when submitting a form
@@ -443,13 +417,12 @@ function ProductCard({ product, isFeatured }) {
 - Highlight selected items in a list
 - Show error messages next to form fields with invalid input
 
-
 ### Example:
 
 ```javascriptreact
 function SubmitButton({ isLoading, onClick }) {
   return (
-    <button 
+    <button
       className={`submit-button ${isLoading ? 'submit-button--loading' : ''}`}
       onClick={onClick}
       disabled={isLoading}
@@ -468,7 +441,7 @@ function FormField({ label, value, onChange, error }) {
   return (
     <div className={`form-field ${error ? 'form-field--error' : ''}`}>
       <label className="form-field__label">{label}</label>
-      <input 
+      <input
         className="form-field__input"
         value={value}
         onChange={onChange}
@@ -486,6 +459,42 @@ function FormField({ label, value, onChange, error }) {
 - Ensure sufficient contrast for readability
 - Implement appropriate line heights and letter spacing
 
+## Color and Visual Design
+
+- Prioritize black and white layouts as the default design approach
+- Avoid using colors other than black and white unless specifically requested
+- Use whitespace and padding as primary means of separating logical groupings
+- Do not rely on background colors or shapes for visual separation
+- Keep the interface clean and minimal with high contrast
+
+### Decision-making process:
+
+1. Start with a black and white design foundation
+2. Use typography and spacing to create visual hierarchy
+3. Only add color when explicitly required for specific UI elements
+4. Maintain strong contrast ratios for accessibility
+
+### Example:
+
+```css
+/* Preferred styling approach */
+.content-section {
+  margin: 2rem 0;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #000;
+}
+
+.content-group {
+  margin-bottom: 1.5rem;
+  padding-left: 1rem;
+}
+
+/* Instead of using background colors */
+.content-section--important {
+  border-left: 2px solid #000;
+  padding-left: 1.5rem;
+}
+```
 
 ### Decision-making process:
 
@@ -494,19 +503,17 @@ function FormField({ label, value, onChange, error }) {
 3. Assign specific sizes to different text elements (h1, h2, p, etc.)
 4. Test readability on various devices and adjust as needed
 
-
 ### Guidelines for appropriate typography:
 
 - Line height: 1.5 for body text, 1.2 for headings
 - Letter spacing: -0.02em for headings, normal for body text
 - Adjust based on font choice and size (larger text often needs tighter line height)
 
-
 ### Example:
 
 ```css
 :root {
-  --font-primary: 'Roboto', sans-serif;
+  --font-primary: "Roboto", sans-serif;
   --font-size-base: 16px;
   --line-height-base: 1.5;
   --line-height-heading: 1.2;
@@ -518,7 +525,12 @@ body {
   line-height: var(--line-height-base);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   line-height: var(--line-height-heading);
   letter-spacing: -0.02em;
 }
@@ -545,14 +557,12 @@ p {
 - Ensure sufficient spacing between interactive elements
 - Adjust spacing for different screen sizes
 
-
 ### Decision-making process:
 
 1. Define a base spacing unit (e.g., 8px)
 2. Create a spacing scale (e.g., 8px, 16px, 24px, 32px, 48px)
 3. Apply spacing consistently to margins and paddings
 4. Adjust spacing at different breakpoints for responsiveness
-
 
 ### Example:
 
@@ -593,7 +603,6 @@ p {
 - Think about the frequency of use and user goals
 - Maintain consistency across the application
 
-
 ### Decision-making process:
 
 1. Identify the type of data or action required
@@ -602,13 +611,11 @@ p {
 4. Choose the most appropriate component from the guidelines
 5. Ensure the chosen component is accessible and responsive
 
-
 ### Examples of frequency of use and user goals:
 
 - Frequently used actions (e.g., add to cart) should be prominently placed and easily accessible
 - Less common actions (e.g., account settings) can be in dropdown menus or secondary navigation
 - Primary user goals (e.g., finding a product) should be supported by prominent search bars or category navigation
-
 
 ### Examples of maintaining consistency:
 
@@ -616,7 +623,6 @@ p {
 - Maintain consistent button styles for primary and secondary actions
 - Use the same icon set across all pages
 - Keep navigation in the same location across different pages
-
 
 ### Examples:
 
@@ -670,7 +676,6 @@ function PriceRangeSlider({ min, max, value, onChange }) {
 - Use columns for hierarchical information (e.g., sidebar navigation next to main content)
 - Switch from row to column layout on smaller screens for better readability
 
-
 Example:
 
 ```html
@@ -692,7 +697,6 @@ Example:
 - Secondary action buttons (e.g., "Cancel", "Back") should be to the left of or above primary buttons
 - In lists or tables, place edit/delete buttons to the right of each item
 - For mobile, important buttons should be within thumb reach (bottom of the screen)
-
 
 Example:
 
@@ -724,18 +728,17 @@ Example:
 - Place optional fields at the bottom of the form
 - Align labels and fields in a single column for mobile views
 
-
 Example:
 
 ```html
 <form class="contact-form">
   <div class="form-group">
     <label for="name" class="form-label">Name</label>
-    <input type="text" id="name" class="form-input" required>
+    <input type="text" id="name" class="form-input" required />
   </div>
   <div class="form-group">
     <label for="email" class="form-label">Email</label>
-    <input type="email" id="email" class="form-input" required>
+    <input type="email" id="email" class="form-input" required />
   </div>
   <div class="form-group">
     <label for="message" class="form-label">Message</label>
@@ -743,7 +746,7 @@ Example:
   </div>
   <div class="form-group">
     <label for="phone" class="form-label">Phone (optional)</label>
-    <input type="tel" id="phone" class="form-input">
+    <input type="tel" id="phone" class="form-input" />
   </div>
   <button type="submit" class="button button--primary">Send</button>
 </form>
@@ -754,7 +757,6 @@ Example:
 - Primary navigation: Horizontal bar at the top for desktop, hamburger menu for mobile
 - Secondary navigation: Left sidebar for desktop, collapsible menu for mobile
 - Footer navigation: Less important links, legal information, social media links
-
 
 Example:
 
@@ -803,7 +805,6 @@ Example:
 - Use size, color, and whitespace to create visual hierarchy
 - Implement progressive disclosure: show basic info first, details on demand
 
-
 Example:
 
 ```html
@@ -812,7 +813,9 @@ Example:
   <p class="product-detail__price">$99.99</p>
   <div class="product-detail__summary">
     <p class="product-detail__description">Brief product description here.</p>
-    <button class="product-detail__cta button button--primary">Add to Cart</button>
+    <button class="product-detail__cta button button--primary">
+      Add to Cart
+    </button>
   </div>
   <details class="product-detail__more-info">
     <summary>More Information</summary>
@@ -826,7 +829,6 @@ Example:
 - Primary CTA should be above the fold and visually distinct
 - For long pages, repeat the CTA at the bottom
 - In product pages, place "Add to Cart" button near the product image and price
-
 
 Example:
 
@@ -853,32 +855,37 @@ Example:
 - For articles: Hero image at the top, inline images to break up text
 - For profiles: Avatar top left or centered, depending on layout
 
-
 Example:
 
 ```html
 <article class="product-page">
   <div class="product-page__image">
-    <img src="product-image.jpg" alt="Product Name">
+    <img src="product-image.jpg" alt="Product Name" />
   </div>
   <div class="product-page__details">
     <h1 class="product-page__title">Product Name</h1>
     <p class="product-page__price">$99.99</p>
     <p class="product-page__description">Product description here...</p>
-    <button class="product-page__cta button button--primary">Add to Cart</button>
+    <button class="product-page__cta button button--primary">
+      Add to Cart
+    </button>
   </div>
 </article>
 
 <article class="blog-post">
-  <img src="hero-image.jpg" alt="Blog Post Title" class="blog-post__hero">
+  <img src="hero-image.jpg" alt="Blog Post Title" class="blog-post__hero" />
   <h1 class="blog-post__title">Blog Post Title</h1>
   <p>First paragraph of the blog post...</p>
-  <img src="inline-image-1.jpg" alt="Relevant image" class="blog-post__inline-image">
+  <img
+    src="inline-image-1.jpg"
+    alt="Relevant image"
+    class="blog-post__inline-image"
+  />
   <p>Second paragraph of the blog post...</p>
 </article>
 
 <div class="user-profile">
-  <img src="avatar.jpg" alt="User Name" class="user-profile__avatar">
+  <img src="avatar.jpg" alt="User Name" class="user-profile__avatar" />
   <h2 class="user-profile__name">User Name</h2>
   <p class="user-profile__bio">User bio goes here...</p>
 </div>
@@ -888,7 +895,6 @@ Example:
 
 - Place filter options in a left sidebar for desktop, collapsible top bar for mobile
 - Sorting options should be above and right-aligned with the list of items
-
 
 Example:
 
@@ -919,17 +925,22 @@ Example:
 - Use pagination for structured content (e.g., search results, product catalogs)
 - Use infinite scroll for social media feeds or homogeneous content streams
 
-
 Example (Pagination):
 
 ```html
 <nav class="pagination" aria-label="Page navigation">
   <ul class="pagination__list">
-    <li class="pagination__item"><a href="#" class="pagination__link">Previous</a></li>
+    <li class="pagination__item">
+      <a href="#" class="pagination__link">Previous</a>
+    </li>
     <li class="pagination__item"><a href="#" class="pagination__link">1</a></li>
-    <li class="pagination__item"><a href="#" class="pagination__link pagination__link--active">2</a></li>
+    <li class="pagination__item">
+      <a href="#" class="pagination__link pagination__link--active">2</a>
+    </li>
     <li class="pagination__item"><a href="#" class="pagination__link">3</a></li>
-    <li class="pagination__item"><a href="#" class="pagination__link">Next</a></li>
+    <li class="pagination__item">
+      <a href="#" class="pagination__link">Next</a>
+    </li>
   </ul>
 </nav>
 ```
@@ -939,7 +950,6 @@ Example (Pagination):
 - Use for focused tasks that require immediate attention
 - Center on the screen with a semi-transparent overlay behind
 - Ensure they're dismissible by clicking outside or a clear "close" button
-
 
 Example:
 
@@ -965,7 +975,6 @@ function Modal({ isOpen, onClose, children }) {
 - Place tooltips above the element they describe, unless space constraints require otherwise
 - For form fields, place help text below the input
 
-
 Example:
 
 ```javascriptreact
@@ -988,6 +997,3 @@ function TooltipButton({ text, tooltip }) {
   );
 }
 ```
-
-These guidelines and examples provide a comprehensive framework for making decisions about UI design and element placement. Remember to always consider the specific context of your application and conduct user testing to refine your designs.
-
